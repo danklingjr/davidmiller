@@ -1,8 +1,32 @@
 /*!////////////////////////////////////////////////
 // THEME
 /////////////////////////////////////////////////*/
-$base-font-size: 16px;
-@function em($px, $base: $base-font-size){
+$font-size: 16px;
+@function em($px, $base: $font-size){
 	@return ($px / $base) * 1em;
 }
 
+$primaryColor: #122d5f; //dark blue
+$secondaryColor: #557ab6; //blue
+$tertiaryColor: #84b12d; //green
+
+$headline: 'Merriweather', serif;
+$body: 'Open Sans', sans-serif;
+$alternate: 'Oxygen', sans-serif;
+
+.button{
+	display: inline-block;
+	font-family: $alternate;
+	font-size: em(18px,$font-size);
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 3px solid #fff;
+	padding: 10px 30px;
+	margin-top: 40px;
+	&:hover,
+	&:focus{
+		background-color: #fff;
+		color: $primaryColor;
+	}
+}
