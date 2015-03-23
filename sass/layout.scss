@@ -12,7 +12,7 @@
 .row {
     clear: both;
 }
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 600px) {
     .wrap {
         width: 98%;
     }
@@ -40,7 +40,7 @@
         float: right;
     }
 }
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 700px) {
     .grid-1 { 
         @include gridRow(6, 1.515151515152%);
     }

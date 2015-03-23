@@ -11,11 +11,13 @@ header[role=banner]{
 	background-color: $primaryColor;
 	border-bottom: 10px solid $secondaryColor;
 	padding: 20px 5%;
-	nav{
-		float: right;
-		margin-top: 60px;
+	nav[role=navigation]{
+		display: none;
+		float: none;
+		margin: 10px auto;
+		text-align: center;
 		li{
-			display: inline-block;
+			display: block;
 			&:after{
 				content: '/';
 				font-family: $alternate;
@@ -39,6 +41,36 @@ header[role=banner]{
 				color: $tertiaryColor;
 			}
 		}
+		@media screen and (min-width: 650px){
+			display: block;
+			li{
+				display: inline-block;
+			}
+			a{
+				font-size: em(16px,$font-size);
+			}
+		}
+		@media screen and (min-width: 810px){
+			a{
+				font-size: em(22px,$font-size);
+			}
+		}
+		@media screen and (min-width: 1141px){
+			float: right;
+			margin: 60px 0 0 0;
+			a{
+				font-size: em(16px,$font-size);
+			}
+		}
+		@media screen and (min-width: 1300px){
+			a{
+				font-size: em(22px,$font-size);
+			}
+			li{
+				
+			}
+		}
+
 	}
 }
 .selected{
@@ -46,7 +78,7 @@ header[role=banner]{
 	&:after{
 		content: '';
 		position: absolute;
-		bottom: -44px;
+		bottom: -33px;
 		left: 50%;
 		margin-left: -15px;
 		width: 0; 
@@ -56,13 +88,61 @@ header[role=banner]{
 		
 		border-bottom: 15px solid $tertiaryColor;
 	}
+	@media screen and (min-width: 810px){
+		&:after{
+			bottom: -32px;
+		}
+	}
+	@media screen and (min-width: 1141px){
+		&:after{
+			bottom: -45px;
+		}
+	}
+	@media screen and (min-width: 1300px){
+		&:after{
+			content: '';
+			bottom: -44px;
+		}
+	}
+}
+.mobile__button p{
+	display: block;
+	font-family: $alternate;
+	font-size: em(24px,$font-size);
+	color: #fff;
+	text-align: right;
+	text-transform: uppercase;
+	text-decoration: none;
+	@media screen and (min-width: 650px){
+		display: none;
+	}
+}
+.mobile__nav{
+	display: none;
+	a{
+		display: block;
+		font-family: $alternate;
+		font-size: em(22px,$font-size);
+		color: #fff;
+		text-align: right;
+		text-transform: uppercase;
+		text-decoration: none;
+		@include prefix(transition, 0.2s ease-in-out);
+		&:hover{
+			color: $tertiaryColor;
+		}
+	}
+	@media screen and (min-width: 650px){
+		display: none;
+	}
 }
 .meta-contact{
 	position: absolute;
 	right: 5%;
 	span{
+		display: block;
 		font-family: $alternate;
-		font-size: em(22px,$font-size);
+		font-size: em(16px,$font-size);
 		color: #fff;
 		text-decoration: none;
 		margin-left: 20px;
@@ -75,10 +155,29 @@ header[role=banner]{
 				color: $tertiaryColor;
 			}
 		}
+		@media screen and (min-width: 640px){
+			font-size: em(22px,$font-size);
+		}
+		@media screen and (min-width: 810px){
+			display: inline-block;
+		}
 	}
 }
 .branding{
-	float: left;
+	float: none;
+	img{
+		width: 65%;
+		max-width: 435px;
+	}
+	@media screen and (min-width: 640px){
+		img{
+			width: 100%;
+			max-width: 435px;
+		}
+	}
+	@media screen and (min-width: 1141px){
+		float: left;
+	}
 }
 
 .hero,
@@ -88,32 +187,50 @@ header[role=banner]{
 	width: 100%;
 }
 .hero{
-	min-height: 565px;
+	
 	background-image: url(../img/feature.jpg);
+	@media screen and (min-width: 650px){
+		min-height: 565px;
+	}
 }
 .hero--page{
-	height: 405px;
+
 	background-image: url(../img/feature-page.jpg);
+	@media screen and (min-width: 650px){
+		min-height: 405px;
+	}
 }
 .hero--project{
 	background-image: url(../img/feature-project.jpg);
 }
 .hero__text{
 	background-color: rgba(0,0,0,0.24);
-	width: 75%;
+	width: 90%;
 	font-family: $headline;
-	font-size: em(38px,$font-size);
+	font-size: em(18px,$font-size);
 	line-height: 1.8em;
 	color: #fff;
 	text-align: center;
 	text-transform: uppercase;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.45);
-	margin: 200px auto;
-	padding: 30px 50px;
+	margin: 50px auto;
+	padding: 30px 20px;
+	@media screen and (min-width: 650px){
+		font-size: em(26px,$font-size);
+		width: 75%;
+		padding: 30px 50px;
+		margin: 200px auto;
+	}
+	@media screen and (min-width: 960px){
+		font-size: em(38px,$font-size);
+	}
 }
 .hero--page .hero__text{
-	margin: 100px auto;
+	margin: 50px auto;
 	font-weight: 400 !important;
+	@media screen and (min-width: 650px){
+		margin: 100px auto;
+	}
 }
 .welcome,
 .project__details{
@@ -194,6 +311,7 @@ header[role=banner]{
 	position: relative;
 	padding: 5px;
 	text-align: center;
+	@include prefix(transition, 0.2s ease-in-out);
 	h3{
 		margin-top: 20px;
 		font-size: em(18px,$font-size);
@@ -223,7 +341,8 @@ header[role=banner]{
 .service__overlay{
 	position: absolute;
 	top: 0;
-	display: none;
+	display: block;
+	opacity: 0;
 	width: 100%;
 	height: 100%;
 	background-color: transparentize($secondaryColor, 0.42);
@@ -231,6 +350,7 @@ header[role=banner]{
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+@include prefix(transition, 0.2s ease-in-out);
 	a{
 		display: block;
 		height: 100%;
@@ -262,6 +382,7 @@ header[role=banner]{
 .project:focus{
 	.service__overlay{
 		display: block;
+		opacity: 1;
 	}
 }
 .mission-statement{

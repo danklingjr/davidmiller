@@ -5,3 +5,7 @@ $('.gallery__thumbs span img').click(function() {
 	var author = $(this).attr('data-photographer');
 	$('.photographer').text(author);
 });
+
+$('.mobile__button p').click(function(){
+	$('.mobile-nav').find('.mobile__nav').slideToggle(200);
+});
