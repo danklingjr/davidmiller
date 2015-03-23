@@ -1,0 +1,1 @@
+$(".gallery__thumbs span img").click(function(){var t=$(this).attr("src");$(".gallery__big img.gallery-big").attr("src",t);var r=$(this).attr("data-photographer");$(".photographer").text(r)});

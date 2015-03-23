@@ -24,9 +24,46 @@ $alternate: 'Oxygen', sans-serif;
 	border: 3px solid #fff;
 	padding: 10px 30px;
 	margin-top: 40px;
+	@include prefix(transition, 0.2s ease-in-out);
 	&:hover,
 	&:focus{
 		background-color: #fff;
 		color: $primaryColor;
 	}
+}
+
+p{
+	font-family: $body;
+	font-size: em(18px,$font-size);
+	color: #464646;
+}
+li{
+	font-family: $body;
+	color: #464646;
+}
+.icon-expand{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	img{
+		display: inline-block;
+		margin-top: 57px;
+		margin-left: 16px;
+		transform: scale(0.8);
+		@include prefix(transform, scale(0.8));
+		@include prefix(transition, 0.2s ease-in-out);
+	}
+	&:hover{
+		img{
+			@include prefix(transform, scale(1));
+		}
+	}
+}
+.corner{
+	width: 0;
+	height: 0;
+	border-left: 0px solid transparent;
+	border-right: 100px solid transparent;
+	
+	border-bottom: 100px solid rgba(0,0,0,0.5);
 }
